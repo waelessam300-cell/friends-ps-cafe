@@ -1,0 +1,104 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;700&display=swap');
+:root{
+  --gold: #d4af37;
+  --bg: #000;
+  --card: #0f0f0f;
+  --muted: #bdbdbd;
+}
+*{box-sizing:border-box}
+body {
+    margin: 0;
+    font-family: 'Cairo', sans-serif;
+    background: var(--bg);
+    color: #fff;
+    direction: rtl;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    background: linear-gradient(180deg,#070707, #0b0b0b);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    border-bottom: 1px solid #111;
+}
+header h1 { color: var(--gold); margin:0; font-size:20px; letter-spacing:1px }
+nav a { margin: 0 10px; color: #fff; text-decoration: none; font-weight: bold; transition:color .2s}
+nav a:hover{ color:var(--gold) }
+
+.logo-small { height:48px; filter: drop-shadow(0 4px 8px rgba(212,175,55,0.15)); }
+
+/* Hero */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: url('banner.png') center/cover no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.6));
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background: var(--gold);
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: transform .12s ease, box-shadow .12s ease;
+}
+.btn:hover{ transform: translateY(-4px); box-shadow: 0 8px 30px rgba(212,175,55,0.15) }
+
+/* WhatsApp CTA */
+.whatsapp-cta{
+    display:inline-flex;
+    gap:10px;
+    align-items:center;
+    background: linear-gradient(90deg,#25D366,#128C7E);
+    color:#fff;
+    padding:10px 14px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:700;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+}
+.whatsapp-cta img{height:22px}
+
+/* Sections & Cards */
+.section { padding: 48px 20px; text-align: center; }
+.card-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top:18px;}
+.card { background: var(--card); padding: 20px; width: 260px; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.6);}
+.price { font-size: 22px; color: var(--gold); margin-top:8px }
+
+/* Menu layout */
+.menu-grid{ display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:18px; max-width:1000px; margin:18px auto; text-align:right;}
+.menu-item{ background:#0b0b0b; padding:12px; border-radius:10px; text-align:right; }
+
+/* Animations */
+.fade-in{ opacity:0; transform: translateY(12px); transition: all .6s cubic-bezier(.2,.9,.2,1); }
+.fade-in.show{ opacity:1; transform:none; }
+
+/* Logo glow */
+.logo-glow{ filter: drop-shadow(0 8px 20px rgba(212,175,55,0.25)); }
+
+/* Footer */
+.footer { padding:20px; text-align:center; background:#050505; color:var(--muted); font-size:14px; }
+
+/* Responsive */
+@media (max-width:800px){
+    header{flex-wrap:wrap; gap:12px}
+    .hero{ padding:40px 10px; }
+    .card-container { flex-direction: column; align-items:center; }
+}
